@@ -1,0 +1,178 @@
+#PARAMETROS entrenamiento.py y test.py
+
+dataset: "3ENTORNOS"
+exp: 2
+
+numEpochs:
+  coarseLoc: 5
+  fineLoc: 5
+  globalLoc: 5
+epochLength:
+  coarseLoc: 50000
+  fineLoc: 10000
+  globalLoc: 50000
+
+thresholds:
+  fineLoc:
+    rPos: 0.3
+    rNeg: [0.3, 0.5, 0.7, 1]
+  globalLoc:
+    rPos: 0.3
+    rNeg: 0.3
+
+losses:
+  losses: ['triplet loss', 'lifted embedding', 'lazy triplet', 'semi hard',
+               'batch hard', 'circle loss', 'angular loss']
+  coarseLoc:
+    training: ['semi hard']
+    test: ['semi hard']
+  fineLoc:
+    training: ['semi hard']
+    test: ['semi hard']
+  globalLoc:
+    training: [ 'triplet loss', 'lifted embedding', 'lazy triplet', 'semi hard',
+                'batch hard', 'circle loss', 'angular loss' ]
+    test: [ 'triplet loss', 'lifted embedding', 'lazy triplet', 'semi hard',
+            'batch hard', 'circle loss', 'angular loss' ]
+  abreviations: ['TL', 'LE', 'LT', 'SH', 'BH', 'CL', 'AL']
+
+trainedNets:
+  coarseLoc: ['netLg_TLm1.25', 'netLg_LEm0.25', 'netLg_LTm1.25', 'netLg_SHm1', 'netLg_BHm0.75', 'netLg_CLm1', 'netLg_ALm30']
+
+
+# loss order: triplet loss, lifted embedding, lazy triplet, semi hard, batch hard, circle loss, angular loss
+margins:
+  coarseLoc:  [[1.25], [0.25], [1.25], [1], [0.75], [0], [30]]
+  fineLoc: [1.25, 0.25, 1.25, 1, 0.75, 0, 30]
+  globalLoc: [[1], [0.25], [1.25], [1.25], [0.75], [1], [30]]
+
+
+showLoss: 100
+doValidation: 100
+
+k:
+  fineLoc: 8
+  globalLoc: 8
+
+
+
+#base_dir: '/home/arvc/Escritorio/Marcos/TFG/'
+#
+#rutas_imgs:
+#    training_dir: '/DATASETS/Entrenamiento'
+#    validation_dir: 'DATASETS/Validacion'
+#    centro_geom_dir: 'DATASETS/ImagenesCentroGeometrico'
+#    test_cloudy_dir: '/DATASETS/TestCloudy'
+#    test_sunny_dir: '/DATASETS/TestSunny'
+#    test_night_dir: '/DATASETS/TestNight'
+#
+#rutas_csv:
+#    train_csv_dir: '/ListaEntrenamiento.csv'
+#    val_csv_dir: '/ListaValidacion.csv'
+#    data_csv_dir: '/DatosExperimento3.csv'
+#    test_csv_dir: '/ResultadosLocGlobal.csv'
+#    test:
+#        cloudy_csv_dir: '/TestNublado.csv'
+#        sunny_csv_dir: '/TestSoleado.csv'
+#        night_csv_dir: '/TestNoche.csv'
+#
+#batch_size:               #tamaño de los lotes de imgs cargados en cada proceso (número de combinaciones de imgs)
+#    train_batch_size: 16
+#    val_batch_size: 1
+#    test_batch_size: 9
+#
+#train_number_epochs: 5   #número de épocas a realizar para el entrenamiento de la red
+#
+#do_dataparallel: False
+#
+#shuffle_train: False
+#
+#frequency:                #estos parámetros indican cada cuántos lotes de imgs cargados
+#    show_loss: 100          #se muestra el valor de la función de pérdida
+#    do_validation: 100       #se realiza la validación de la red
+#
+#exp: 'exp3'
+#
+#test_net:
+#     Lg: ['netLg_TLm125', 'netLg_LEm025', 'netLg_CLm1', 'netLg_LTm125', 'netLg_SHm1', 'netLg_BHm075', 'netLg_ALm30']
+##     Lg: ['netLG_TLm1','netLG_LEm0.25','netLG_CLm1','netLG_LTm1.25','netLG_SHm1.25','netLG_BHm0.75','netLG_ALm30']
+#
+#     Lf: [
+#
+#     ['netLf_TL_1PO-A','netLf_TL_2PO1-A','netLf_TL_2PO2-A',
+#     'netLf_TL_CR-A','netLf_TL_KT-A','netLf_TL_LO-A',
+#     'netLf_TL_PA-A','netLf_TL_ST-A','netLf_TL_TL-A'
+#     ],
+#
+#
+##     ['netLf_LE_1PO-A_ep_0_end','netLf_LE_2PO1-A_ep0it150ac25_5','netLf_LE_2PO2-A_ep_0_end',
+##     'netLf_LE_CR-A_ep_4_end','netLf_LE_KT-A_ep0it200ac47_8','netLf_LE_LO-A_ep_4_end',
+##     'netLf_LE_PA-A_ep4it50ac38_5','netLf_LE_ST-A_ep0it300ac48_3','netLf_LE_TL-A_ep0it250ac42_1'
+##     ], m=1.5
+#
+#     [
+#       'netLf_LE_1PO-A','netLf_LE_2PO1-A','netLf_LE_2PO2-A',
+#      'netLf_LE_CR-A','netLf_LE_KT-A','netLf_LE_LO-A',
+#      'netLf_LE_PA-A','netLf_LE_ST-A','netLf_LE_TL-A'
+#     ],
+#
+#
+#     ['netLf_CL_1PO-A','netLf_CL_2PO1-A','netLf_CL_2PO2-A',
+#      'netLf_CL_CR-A','netLf_CL_KT-A','netLf_CL_LO-A',
+#      'netLf_CL_PA-A','netLf_CL_ST-A','netLf_CL_TL-A'
+#     ],
+#
+#     ['netLf_LT_1PO-A','netLf_LT_2PO1-A','netLf_LT_2PO2-A',
+#      'netLf_LT_CR-A','netLf_LT_KT-A','netLf_LT_LO-A',
+#      'netLf_LT_PA-A','netLf_LT_ST-A','netLf_LT_TL-A'
+#     ],
+#
+#     ['netLf_SH_1PO-A','netLf_SH_2PO1-A','netLf_SH_2PO2-A',
+#      'netLf_SH_CR-A','netLf_SH_KT-A','netLf_SH_LO-A',
+#      'netLf_SH_PA-A','netLf_SH_ST-A','netLf_SH_TL-A'
+#     ],
+#
+#     ['netLf_BH_1PO-A','netLf_BH_2PO1-A','netLf_BH_2PO2-A',
+#     'netLf_BH_CR-A','netLf_BH_KT-A','netLf_BH_LO-A',
+#     'netLf_BH_PA-A','netLf_BH_ST-A','netLf_BH_TL-A'
+#     ],
+#
+#     ['netLf_AL_1PO-A','netLf_AL_2PO1-A','netLf_AL_2PO2-A',
+#      'netLf_AL_CR-A','netLf_AL_KT-A','netLf_AL_LO-A',
+#      'netLf_AL_PA-A','netLf_AL_ST-A','netLf_AL_TL-A'
+#     ]
+#
+#
+#     ]
+#
+#     Lf_rad: [
+#        ['netLT_1POA', 'netLT_2PO1A', 'netLT_2PO2A', 'netLT_CRA', 'netLT_KTA', 'netLT_LOA', 'netLT_PAA', 'netLT_STA', 'netLT_TLA'],
+#        [ 'netR04_1POA', 'netR04_2PO1A', 'netR04_2PO2A', 'netR04_CRA', 'netR04_KTA', 'netR04_LOA', 'netR04_PAA', 'netR04_STA', 'netR04_TLA' ],
+#        [ 'netR05_1POA', 'netR05_2PO1A', 'netR05_2PO2A', 'netR05_CRA', 'netR05_KTA', 'netR05_LOA', 'netR05_PAA', 'netR05_STA', 'netR05_TLA' ]
+#        ]
+#
+#     LG: ['netTL', 'netLE', 'netCL', 'netLT', 'netSH', 'netBH', 'netAL']
+#
+##test_net:
+##    Lg: ['netTL']
+##    Lf: ['']
+##    Lf_rad: ['']
+#
+##test_net: ['exp2_lt_r03_1PO-A_ep_2_it100_ac44_1','exp2_lt_r03_2PO1-A_ep1_end','exp2_lt_r03_2PO2-A_ep4_end',
+##           'exp2_lt_r03_CR-A_ep2_end','exp2_lt_r03_KT-A_ep_3_it100_ac52_1','exp2_lt_r03_LO-A_ep2_end',
+##           'exp2_lt_r03_PA-A_ep3_end','exp2_lt_r03_ST-A_ep3_end','exp2_lt_r03_TL-A_ep3_end'
+##           ]
+#
+##loss: ['triplet loss', 'lifted embedding', 'lazy triplet', 'semi hard', 'batch hard', 'circle loss', 'angular loss']
+##loss: ['semi hard']
+##loss: ['r04', 'r05']
+##loss: ['circle loss', 'triplet loss', 'batch hard loss']
+#margin: [0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 15, 20, 25, 30, 35, 45]
+#alpha: [25, 20, 15, 10]
+#
+#num_iteraciones: 100000
+#
+#max_error_accuracy: 0.10
+#min_val_accuracy: 80
+#error_end_train: 0
+#accuracy_end_train: 100
