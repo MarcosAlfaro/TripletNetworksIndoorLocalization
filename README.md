@@ -1,24 +1,7 @@
 # Hierarchical localization with panoramic views and triplet loss functions
 Marcos Alfaro, Juan José Cabreraa, María Flores, Oscar Reinoso and Luis Payá
 Abstract:
-The main objective of this paper is to tackle visual localization, which is
-essential for the safe navigation of mobile robots. The solution we propose
-employs panoramic images and triplet convolutional neural networks. We
-seek to exploit the properties of such architectures to address both hierarchi-
-cal and global localization in indoor environments, which are prone to visual
-aliasing and other phenomena. Considering their importance in these archi-
-tectures, a complete comparative evaluation of different triplet loss functions
-is performed. The experimental section proves that triplet networks can be
-trained with a relatively low number of images captured under a specific
-lighting condition and even so, the resulting networks are a robust tool to
-perform visual localization under dynamic conditions. Our approach has
-been evaluated against some of these effects, such as changes in the lighting
-conditions, occlusions, noise and motion blurring. Furthermore, to explore
-the limits of our approach, triplet networks have been tested in different in-
-door environments simultaneously. In all the cases, these architectures have
-demonstrated a great capability to generalize to diverse and challenging sce-
-narios. The code used in the experiments is available at https://github.
-com/MarcosAlfaro/TripletNetworksIndoorLocalization.git.
+The main objective of this paper is to tackle visual localization, which is essential for the safe navigation of mobile robots. The solution we propose employs panoramic images and triplet convolutional neural networks. We seek to exploit the properties of such architectures to address both hierarchical and global localization in indoor environments, which are prone to visual aliasing and other phenomena. Considering their importance in these architectures, a complete comparative evaluation of different triplet loss functions is performed. The experimental section proves that triplet networks can be trained with a relatively low number of images captured under a specific lighting condition and even so, the resulting networks are a robust tool to perform visual localization under dynamic conditions. Our approach has been evaluated against some of these effects, such as changes in the lighting conditions, occlusions, noise and motion blurring. Furthermore, to explore the limits of our approach, triplet networks have been tested in different indoor environments simultaneously. In all the cases, these architectures have demonstrated a great capability to generalize to diverse and challenging scenarios. The code used in the experiments is available at https://github.com/MarcosAlfaro/TripletNetworksIndoorLocalization.git.
 
 In this repository, the programmes used to adress robot localization can be found.
 
